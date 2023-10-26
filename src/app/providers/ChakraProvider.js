@@ -1,9 +1,8 @@
 "use client";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
-import { theme } from "../theme/extendedTheme";
+import theme from "../theme/theme";
 
-Chakra;
 const ChakraProvider = ({ children }) => {
   return (
     <CacheProvider>
