@@ -1,5 +1,7 @@
+import ChakraProviders from "./providers/ChakraProvider";
 import { Inter } from "next/font/google";
-import { ChakraBaseProvider } from "@chakra-ui/react";
+import HeaderLayout from "./components/Layouts/HeaderLayout";
+// import i18n from "./core/i18n";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -13,7 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ChakraBaseProvider>{children}</ChakraBaseProvider>
+        <ChakraProviders>
+          <HeaderLayout>{children}</HeaderLayout>
+        </ChakraProviders>
       </body>
     </html>
   );
