@@ -1,5 +1,8 @@
 {
     "Index": {
       "title": "Hello world!"
+    },
+    "Blog": {
+      "title": "Its Blog"
     }
   }
