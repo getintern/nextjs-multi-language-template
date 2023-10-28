@@ -1,0 +1,14 @@
+.formContiner {
+  background-color: #f7fafc;
+  border-radius: 20px;
+  padding: 20px;
+}
+.titleOfFroum {
+  font-size: 30px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .formContiner {
+  background-color: #2d3748;
+}

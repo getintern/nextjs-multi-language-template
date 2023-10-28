@@ -28,22 +28,22 @@ export const iranSans = localFont({
 export const josefSans = localFont({
   src: [
     {
-      path: "../../public/fonts/Josef/josefinsans400.woff2",
+      path: "../../public/fonts/Josef/josefSans400.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Josef/josefinsans500.woff2",
+      path: "../../public/fonts/Josef/josefSans500.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Josef/josefinsans600.woff2",
+      path: "../../public/fonts/Josef/josefSans600.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Josef/josefinsans700.woff2",
+      path: "../../public/fonts/Josef/josefSans700.woff2",
       weight: "700",
       style: "normal",
     },
