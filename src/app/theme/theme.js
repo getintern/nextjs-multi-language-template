@@ -12,11 +12,6 @@ const theme = extendTheme({
       700: "#2a69ac",
     },
   },
-
-  fonts: {
-    heading: "pinar",
-    body: "IRANSans",
-  },
 });
 
 export default theme;
