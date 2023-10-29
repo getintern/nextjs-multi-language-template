@@ -1,0 +1,7 @@
+.ErrorMessageValidation {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(178, 0, 0);
+  margin: 7px 5px 15px;
+}
