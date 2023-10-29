@@ -1,6 +1,4 @@
-:lang(en) body {
-  font-family: "Josefin Sans";
-}
-h1 {
-  font-family: "Josefin Sans";
+::placeholder {
+  font-size: 14px !important;
+  font-weight: 500;
 }

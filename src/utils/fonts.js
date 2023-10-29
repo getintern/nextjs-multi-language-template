@@ -49,3 +49,28 @@ export const josefSans = localFont({
     },
   ],
 });
+
+export const lato = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Lato/Lato300.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Lato/Lato400.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Lato/latoo700.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Lato/latoo800.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+});

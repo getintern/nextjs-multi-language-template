@@ -49,6 +49,12 @@
   background-repeat: no-repeat;
 }
 
+/* [dir="rtl"] .link__span:before,
+[dir="rtl"] .link__span:after {
+  left: 50%;
+  transform: translateX(-50%);
+} */
+
 .link__span:hover:before {
   top: -70%;
   background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),

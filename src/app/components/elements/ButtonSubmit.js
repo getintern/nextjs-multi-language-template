@@ -1,11 +1,23 @@
-import { Button } from "@chakra-ui/react";
+import useCheckDir from "@/app/hooks/useCheckDir";
 import styles from "./ButtonSubmit.module.css";
 
-const ButtonSubmit = () => {
+import Loader from "./Loader";
+
+const ButtonSubmit = ({ persianTitle, englishTitle, isLoading = false }) => {
+  const checkDirection = useCheckDir();
+
   return (
-    <button type="submit" className={styles.Button}>
-      <span className={styles.button_top}>Login </span>
-    </button>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <button type="submit" className={styles.Button}>
+          <span className={styles.button_top}>
+            {checkDirection === "ltr" ? englishTitle : persianTitle}
+          </span>
+        </button>
+      )}
+    </>
   );
 };
 

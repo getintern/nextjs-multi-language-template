@@ -1,13 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AbsoluteCenter,
   Box,
   Button,
   Container,
   Divider,
-  FormControl,
-  FormErrorMessage,
   FormLabel,
   Input,
   InputGroup,
@@ -19,20 +17,23 @@ import {
 import { useTranslations } from "next-intl";
 import useFormValidation from "@/app/hooks/useReactHookForm";
 import { IoIosMail } from "react-icons/io";
-import { BsFillPersonFill } from "react-icons/bs";
+
 import { RiLockPasswordFill } from "react-icons/ri";
 import useCheckDir from "@/app/hooks/useCheckDir";
 import Link from "next/link";
 import ButtonSubmit from "../elements/ButtonSubmit";
 import ErrorValidation from "../elements/ErrorValidation";
 import styles from "./HomePageTemp.module.css";
+import { PiEyeClosedDuotone, PiEyeDuotone } from "react-icons/pi";
 
 const onSubmit = async (values) => {
   console.log(values);
 };
 
 const HomePageTemp = () => {
+  const t = useTranslations("Login");
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const checkDir = useCheckDir();
 
   // handle show password
@@ -42,12 +43,12 @@ const HomePageTemp = () => {
 
   const { handleSubmit, register, errors, control, Controller } =
     useFormValidation();
-  const t = useTranslations("Index");
+
   return (
     <Container maxW="xl" mt={20}>
-      <h1 className={styles.title}>organize your favorite list </h1>
+      <h1 className={styles.title}>{t("title")}</h1>
       <div className={styles.formContiner}>
-        <h2 className={styles.titleOfFroum}>Login</h2>
+        <h2 className={styles.titleOfFroum}>{t("formTitle")}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <>
             <Controller
@@ -55,7 +56,9 @@ const HomePageTemp = () => {
               control={control}
               render={({ field }) => (
                 <div>
-                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <FormLabel fontWeight={700} fontSize={13} htmlFor="email">
+                    {t("emailInput.name")}
+                  </FormLabel>
                   <InputGroup className={errors.email && styles.ErrorBorder}>
                     {checkDir === "ltr" ? (
                       <InputLeftElement pointerEvents="none">
@@ -70,14 +73,14 @@ const HomePageTemp = () => {
                       {...field}
                       id="email"
                       pr={checkDir === "ltr" ? "" : "40px"}
-                      placeholder="email"
+                      placeholder={t("emailInput.name")}
                       {...register("email", {
-                        required: "This is Required",
+                        required: t("requiredMessage"),
                         validate: {
                           matchPattern: (v) =>
                             /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
                               v
-                            ) || "Email address must be a valid address",
+                            ) || t("emailInput.matchPattern"),
                         },
                       })}
                     />
@@ -100,8 +103,10 @@ const HomePageTemp = () => {
               }}
               render={({ field }) => (
                 <div>
-                  <FormLabel htmlFor="password">password</FormLabel>
-                  <InputGroup className={errors.password && styles.ErrorBorder}>
+                  <FormLabel fontWeight={700} fontSize={13} htmlFor="password">
+                    {t("passwordInput.name")}
+                  </FormLabel>
+                  <InputGroup className={errors.email && styles.ErrorBorder}>
                     {checkDir === "ltr" ? (
                       <>
                         <InputLeftElement pointerEvents="none">
@@ -114,7 +119,7 @@ const HomePageTemp = () => {
                             mr={1}
                             onClick={handleShowPassword}
                           >
-                            {show ? "Hide" : "Show"}
+                            {show ? <PiEyeClosedDuotone /> : <PiEyeDuotone />}
                           </Button>
                         </InputRightElement>
                       </>
@@ -130,7 +135,7 @@ const HomePageTemp = () => {
                             ml={1}
                             onClick={handleShowPassword}
                           >
-                            {show ? "Hide" : "Show"}
+                            {show ? <PiEyeClosedDuotone /> : <PiEyeDuotone />}
                           </Button>
                         </InputLeftElement>
                       </>
@@ -140,12 +145,12 @@ const HomePageTemp = () => {
                       id="password"
                       type={show ? "text" : "password"}
                       px="40px"
-                      placeholder="password"
+                      placeholder={t("passwordInput.name")}
                       {...register("password", {
-                        required: "Please enter Password",
+                        required: t("requiredMessage"),
                         minLength: {
                           value: 4,
-                          message: "Your Password Must be at least 4 character",
+                          message: t("passwordInput.minLength"),
                         },
                       })}
                     />
@@ -157,26 +162,32 @@ const HomePageTemp = () => {
               )}
             />
           </>
-          <ButtonSubmit />
+          <ButtonSubmit
+            isLoading={loading}
+            persianTitle="ورود به حساب"
+            englishTitle="Login"
+          />
         </form>
         <Box position="relative" padding="10">
           <Divider />
           <AbsoluteCenter bg={bg} px="4">
-            Create Account
+            {t("createAccount")}
           </AbsoluteCenter>
         </Box>
         <Text fontSize={14} textAlign="center">
-          Dont Have an account?
+          {checkDir === "ltr"
+            ? "Dont Have an account?"
+            : "همین الان حساب کاربری بساز!"}
           <Link
             className={styles.link}
             href={checkDir === "ltr" ? "en/register" : "fa/register"}
           >
-            <span className={styles.link__span}>Sign Up</span>
+            <span className={styles.link__span}>
+              {checkDir === "ltr" ? "SignUp" : "ساخت اکانت"}
+            </span>
           </Link>
         </Text>
       </div>
-
-      {/* <h1>{t("title")}</h1>; */}
     </Container>
   );
 };
