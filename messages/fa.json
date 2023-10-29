@@ -4,5 +4,42 @@
     },
     "Blog": {
       "title": "این بلاگ است"
+    },
+    "Register":{
+      "title": "لیست علاقه مندیهای خود را بسازید",
+      "formTitle":"عضویت",
+      "firstNameInput":{
+        "name":"نام",
+        "matchPattern":"لطفا از حروف های الفبا استفاده کنید"
+      },
+      "lastNameInput":{"name":"نام خانوادگی"},
+      "emailInput":{
+        "name":"ایمیل",
+        "matchPattern":"آدرس ایمیل باید معتبر باشد"
+      },
+      "passwordInput":{
+        "name":"رمز عبور",
+        "minLength":"پسورد حداقل باید ۴ کارکتر باشد"
+      },
+      "confirmPassword":{
+        "name":"تایید رمز عبور",
+        "matchPassword":"رمز شما  مشابه  با رمز عبور نیست"
+      },
+      "requiredMessage":"این فیلد اجباری است",
+      "createAccount": "ورود به حساب"
+    },
+    "Login":{
+      "title": "لیست علاقه مندیهای خود را بسازید",
+      "formTitle":"ورود",
+      "emailInput":{
+        "name":"ایمیل",
+        "matchPattern":"آدرس ایمیل باید معتبر باشد"
+      },
+      "passwordInput":{
+        "name":"رمز عبور",
+        "minLength":"پسورد حداقل باید ۴ کارکتر باشد"
+      },
+      "requiredMessage":"این فیلد اجباری است",
+      "createAccount": "ساخت اکانت"
     }
   }

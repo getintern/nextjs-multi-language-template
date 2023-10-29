@@ -4,5 +4,43 @@
     },
     "Blog": {
       "title": "Its Blog"
+    },
+    "Register":{
+      "title": "organize your favorite list",
+      "formTitle":"Register",
+      "firstNameInput":{
+        "name":"Firstname",
+        "matchPattern":"Use only letters of the alphabet"
+      },
+      "lastNameInput":{"name":"Lastname"},
+      "emailInput":{
+        "name":"Email",
+        "matchPattern":"Email address must be a valid address"
+      },
+      "passwordInput":{
+        "name":"Password",
+        "minLength":"Password Should more than 4 character"
+      },
+      "confirmPassword":{
+        "name":"Confirm Password",
+        "matchPassword":"Your passwords do no match"
+      },
+      "requiredMessage":"This field is required",
+      "createAccount": "Sign in"
+
+    },
+    "Login":{
+      "title": "organize your favorite list",
+      "formTitle":"Login",
+      "emailInput":{
+        "name":"Email",
+        "matchPattern":"Email address must be a valid address"
+      },
+      "passwordInput":{
+        "name":"Password",
+        "minLength":"Password Should more than 4 character"
+      },
+      "requiredMessage":"This field is required",
+      "createAccount": "Created Account"
     }
   }
