@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
+import { signIn } from "next-auth/react";
 import {
   AbsoluteCenter,
   Box,
@@ -12,6 +14,7 @@ import {
   InputLeftElement,
   InputRightElement,
   Text,
+  useToast,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
@@ -20,21 +23,24 @@ import { IoIosMail } from "react-icons/io";
 
 import { RiLockPasswordFill } from "react-icons/ri";
 import useCheckDir from "@/app/hooks/useCheckDir";
-import Link from "next/link";
 import ButtonSubmit from "../elements/ButtonSubmit";
 import ErrorValidation from "../elements/ErrorValidation";
 import styles from "./HomePageTemp.module.css";
 import { PiEyeClosedDuotone, PiEyeDuotone } from "react-icons/pi";
-
-const onSubmit = async (values) => {
-  console.log(values);
-};
 
 const HomePageTemp = () => {
   const t = useTranslations("Login");
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const checkDir = useCheckDir();
+  const toast = useToast({
+    position: "top-right",
+    isClosable: true,
+    duration: 3000,
+    containerStyle: {
+      marginTop: "40px",
+    },
+  });
 
   // handle show password
   const handleShowPassword = () => setShow(!show);
@@ -43,6 +49,30 @@ const HomePageTemp = () => {
 
   const { handleSubmit, register, errors, control, Controller } =
     useFormValidation();
+
+  const onSubmit = async (values) => {
+    setLoading(true);
+    const res = await signIn("credentials", {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
+
+    setLoading(false);
+    console.log(res)
+    if (res.ok) {
+      toast({
+        title: checkDir === "ltr" ? "login successfully." : res.message,
+        status: "success",
+      });
+      router.push(checkDir === "ltr" ? "/en/dashboard" : "/fa/dashboard");
+    } else {
+      toast({
+        title: checkDir === "ltr" ? "Something Wrong , try again" : res.error,
+        status: "warning",
+      });
+    }
+  };
 
   return (
     <Container maxW="xl" mt={20}>
