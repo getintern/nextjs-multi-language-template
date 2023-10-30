@@ -5,9 +5,9 @@ async function hashPassword(password) {
   return hashedPassword;
 }
 
-async function comparePassword(password, hashPassword) {
+async function verifyPassword(password, hashPassword) {
   const isValid = await compare(password, hashPassword);
   return isValid;
 }
 
-export { hashPassword, comparePassword };
+export { hashPassword, verifyPassword };
