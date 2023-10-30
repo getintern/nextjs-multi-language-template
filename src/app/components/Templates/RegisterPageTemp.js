@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   AbsoluteCenter,
   useToast,
@@ -38,6 +39,7 @@ const RegisterPageTemp = () => {
   const checkDir = useCheckDir();
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
+  const router = useRouter();
 
   const toast = useToast({
     position: "top-right",
@@ -75,6 +77,7 @@ const RegisterPageTemp = () => {
             : "الان می توانید وارد حساب کاربری خود بشوید",
         status: "success",
       });
+      router.push(checkDir === "ltr" ? "/en" : "/fa");
     } else if (data.status === 422) {
       toast({
         title: checkDir === "ltr" ? "Account Already Exist" : data.error,
