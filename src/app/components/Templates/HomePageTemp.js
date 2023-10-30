@@ -27,12 +27,14 @@ import ButtonSubmit from "../elements/ButtonSubmit";
 import ErrorValidation from "../elements/ErrorValidation";
 import styles from "./HomePageTemp.module.css";
 import { PiEyeClosedDuotone, PiEyeDuotone } from "react-icons/pi";
+import { useRouter } from "next/navigation";
 
 const HomePageTemp = () => {
   const t = useTranslations("Login");
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const checkDir = useCheckDir();
+  const router = useRouter();
   const toast = useToast({
     position: "top-right",
     isClosable: true,
@@ -59,10 +61,13 @@ const HomePageTemp = () => {
     });
 
     setLoading(false);
-    console.log(res)
+    console.log(res);
     if (res.ok) {
       toast({
-        title: checkDir === "ltr" ? "login successfully." : res.message,
+        title:
+          checkDir === "ltr"
+            ? "login successfully."
+            : "ورود با موفقیت انجام شد",
         status: "success",
       });
       router.push(checkDir === "ltr" ? "/en/dashboard" : "/fa/dashboard");
