@@ -10,7 +10,7 @@ const authOptions = {
     CredentialsProvider({
       async authorize(credentials) {
         const { email, password } = credentials;
-
+        console.log(email, password);
         try {
           await connectDB();
         } catch (error) {
@@ -20,11 +20,12 @@ const authOptions = {
         if (!email || !password)
           throw new Error("لطفا اطلاعات معتبر وارد کتید");
 
-        const user = User.findOne({ email });
+        const user = await User.findOne({ email });
+        console.log(user);
         if (!user) throw new Error("حساب کاربری موجود نیست");
 
-        const isValidPassword = verifyPassword(password, user.password);
-
+        const isValidPassword = await verifyPassword(password, user.password);
+        console.log(isValidPassword);
         if (!isValidPassword) throw new Error("نام کاربری یا پسورد اشتباه است");
 
         return { email };
