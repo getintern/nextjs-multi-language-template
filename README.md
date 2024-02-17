@@ -13,8 +13,6 @@ Getting Started
 
 To get started with this template, follow these steps:
 
-    Clone the Repository: Clone this repository to your local machine using:
-
     git clone https://github.com/getintern/nextjs-multi-language-template.git
 
 
