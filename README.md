@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Next.js Multi-Language Website Starter Template
 
-## Getting Started
+This is a starter template for creating multi-language websites using Next.js. It provides a solid foundation for developers who want to implement multi-language support in their web projects efficiently.
+Features
 
-First, run the development server:
+    Multi-Language Support: Easily add support for multiple languages to your website.
+    Dynamic Routing: Utilize Next.js's dynamic routing to handle different language versions of your pages.
+    Localization: Organize your content in different languages for seamless localization.
+    SEO-Friendly: Ensure that your website is SEO-friendly across all supported languages.
+    Customizable: Tailor the template to fit the specific needs and design of your project.
 
-```bash
+Getting Started
+
+To get started with this template, follow these steps:
+
+    Clone the Repository: Clone this repository to your local machine using:
+
+    bash
+
+git clone https://github.com/getintern/nextjs-multi-language-template.git
+
+Install Dependencies: Navigate to the project directory and install dependencies using your preferred package manager:
+
+bash
+
+cd nextjs-multi-language
+npm install
+
+Add Your Content: Populate the pages directory with your pages and content for each supported language. Use the provided directory structure to organize your files.
+
+Configure Languages: Customize the language configuration in the project settings to match the languages you want to support.
+
+Run the Development Server: Start the Next.js development server to preview your website:
+
+arduino
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build and Deploy: When you're ready to deploy your website, build the project using:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+arduino
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    npm run build
 
-## Learn More
+    Then, deploy the generated out directory to your hosting provider of choice.
 
-To learn more about Next.js, take a look at the following resources:
+Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License.
